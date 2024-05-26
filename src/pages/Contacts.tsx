@@ -26,20 +26,26 @@ const Contacts: React.FC = () => {
       </div>
 
       <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Create Contact"
-        className="fixed inset-0 flex items-center justify-center"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-50"
-      >
-        <div className="p-5 bg-white rounded-md shadow-md relative max-w-md mx-auto">
-          <h2 className="text-xl font-bold mb-4">Create Contact</h2>
-          <ContactForm />
-          <button onClick={closeModal} className="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
-            &times;
-          </button>
-        </div>
-      </Modal>
+  isOpen={isModalOpen}
+  onRequestClose={closeModal}
+  contentLabel="Create Contact"
+  className="fixed inset-0 flex items-center justify-center"
+  overlayClassName="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
+>
+
+  <div className={`p-8 bg-white rounded-md shadow-md relative max-w-md mx-auto ${isModalOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+    <h2 className="text-2xl font-bold mb-6 text-gray-800">Create New Contact</h2>
+    <ContactForm onClose={closeModal} />
+    <button
+      onClick={closeModal}
+      className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none"
+    >
+      &times;
+    </button>
+  </div>
+</Modal>
+
+
     </div>
   );
 };

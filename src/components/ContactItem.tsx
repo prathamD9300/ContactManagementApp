@@ -28,10 +28,14 @@ const ContactItem: React.FC<ContactItemProps> = ({ contact }) => {
     setIsEditing(false);
   };
 
+  const handleClose = () => {
+    setIsEditing(false);
+  };
+
   return (
     <div>
       {isEditing ? (
-        <ContactForm currentContact={contact} onUpdate={handleUpdate} />
+        <ContactForm currentContact={contact} onClose={handleClose} />
       ) : (
         <div>
           <h3 className="text-lg font-semibold">

@@ -10,14 +10,18 @@ interface ContactFormProps {
     lastName: string;
     status: 'active' | 'inactive';
   };
-  onUpdate?: () => void;
+  onClose?: () => void;
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ currentContact, onUpdate }) => {
+const ContactForm: React.FC<ContactFormProps> = ({
+  currentContact,
+  onClose,
+}) => {
   const [firstName, setFirstName] = useState(currentContact?.firstName || '');
   const [lastName, setLastName] = useState(currentContact?.lastName || '');
-  const [status, setStatus] = useState<'active' | 'inactive'>(currentContact?.status || 'active');
-
+  const [status, setStatus] = useState<'active' | 'inactive'>(
+    currentContact?.status || 'active'
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,24 +34,29 @@ const ContactForm: React.FC<ContactFormProps> = ({ currentContact, onUpdate }) =
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newContact = { id: currentContact?.id || uuidv4(), firstName, lastName, status };
-
+    const newContact = {
+      id: currentContact?.id || uuidv4(),
+      firstName,
+      lastName,
+      status,
+    };
     if (currentContact) {
       dispatch(updateContact(newContact));
-      if (onUpdate) onUpdate();
     } else {
       dispatch(addContact(newContact));
     }
-
     setFirstName('');
     setLastName('');
     setStatus('active');
+    if (onClose) onClose(); // This line will close the modal
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">First Name</label>
+        <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+          First Name
+        </label>
         <input
           type="text"
           id="firstName"
@@ -57,7 +66,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ currentContact, onUpdate }) =
         />
       </div>
       <div>
-        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Last Name</label>
+        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+          Last Name
+        </label>
         <input
           type="text"
           id="lastName"
