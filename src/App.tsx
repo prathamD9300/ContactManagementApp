@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';  // Updated import to match the correct path
 import Sidebar from './components/sidebar';
@@ -14,6 +14,7 @@ const App: React.FC = () => {
           <Sidebar />
           <div className="flex-1 p-8 ml-64">
             <Routes>
+              <Route path="/ContactManagementApp" element={<Navigate to="/" />} />
               <Route path="/" element={<Contacts />} />
               <Route path="/charts-and-maps" element={<Charts />} />
             </Routes>

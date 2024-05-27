@@ -229,7 +229,7 @@ const [dailyAdditionSubTab, setDailyAdditionSubTab] = useState<'cases' | 'deaths
   return (
     <div className="container mx-auto py-8">
       <h2 className="text-3xl font-bold mb-8">COVID-19 Dashboard</h2>
-      <div className="bg-gray-800 rounded-lg shadow-lg p-6 mb-10">
+      <div className="bg-gradient-to-b from-blue-700 to-blue-200 rounded-lg shadow-lg p-6 mb-10">
   <h3 className="text-2xl font-semibold mb-6 text-white">Global Statistics</h3>
   <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
     <div className="bg-gray-700 p-4 rounded-lg text-center">
