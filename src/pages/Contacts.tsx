@@ -14,7 +14,9 @@ const Contacts: React.FC = () => {
   return (
     <div className="flex h-screen font-sans">
       <div className="flex-1 p-5">
-        <h1 className="text-2xl font-bold mb-5">Contacts</h1>
+      <h1 className="text-5xl font-bebas-neue mb-5 bg-gradient-to-r from-purple-800 to-purple-400 text-transparent bg-clip-text">
+  Contacts
+</h1>
         <div className="mb-5">
           <button onClick={openModal} className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
             Create Contact

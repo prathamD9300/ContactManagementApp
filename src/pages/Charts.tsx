@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Line } from 'react-chartjs-2';
+import '@fontsource/bebas-neue/400.css';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(
@@ -228,7 +229,9 @@ const [dailyAdditionSubTab, setDailyAdditionSubTab] = useState<'cases' | 'deaths
 
   return (
     <div className="container mx-auto py-8">
-      <h2 className="text-3xl font-bold mb-8">COVID-19 Dashboard</h2>
+      <h2 className="text-5xl font-bebas-neue mb-8 bg-gradient-to-r from-purple-800 to-purple-400 text-transparent bg-clip-text">
+  COVID-19 Dashboard
+</h2>
       <div className="bg-gradient-to-b from-blue-700 to-blue-200 rounded-lg shadow-lg p-6 mb-10">
   <h3 className="text-2xl font-semibold mb-6 text-white">Global Statistics</h3>
   <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
@@ -256,7 +259,9 @@ const [dailyAdditionSubTab, setDailyAdditionSubTab] = useState<'cases' | 'deaths
 </div>
 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
   <div>
-    <h3 className="text-2xl font-semibold mb-6">Charts</h3>
+  <h3 className="text-5xl font-bebas-neue mb-6 bg-gradient-to-r from-purple-800 to-purple-400 text-transparent bg-clip-text">
+  Charts
+</h3>
     <div className="bg-white rounded-lg shadow-lg p-6">
       <ul className="flex mb-4">
         <li
@@ -294,9 +299,177 @@ const [dailyAdditionSubTab, setDailyAdditionSubTab] = useState<'cases' | 'deaths
               Recovered
             </li>
           </ul>
-          {fluctuationSubTab === 'cases' && <Line data={lineChartDataFluctuationCases} options={lineChartOptions} />}
-          {fluctuationSubTab === 'deaths' && <Line data={lineChartDataFluctuationDeaths} options={lineChartOptions} />}
-          {fluctuationSubTab === 'recovered' && <Line data={lineChartDataFluctuationRecovered} options={lineChartOptions} />}
+          {fluctuationSubTab === 'cases' && <Line data={lineChartDataFluctuationCases} options={{
+    ...lineChartOptions,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Fluctuation in Cases',
+        font: {
+          size: 18,
+          weight: 'bold',
+        },
+        color: '#333',
+      },
+      legend: {
+        display: true,
+        position: 'bottom',
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        callbacks: {
+          label: (context) => `${context.dataset.label}: ${context.parsed.y}`,
+        },
+      },
+    },
+    elements: {
+      line: {
+        borderWidth: 2,
+        hoverBorderWidth: 3,
+        fill: true,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      },
+      point: {
+        pointStyle: 'rectRounded',
+        hoverRadius: 8,
+      },
+    },
+    animation: {
+      duration: 1000,
+      easing: 'easeInOutQuart',
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+  }}/>}
+          {fluctuationSubTab === 'deaths' && <Line data={lineChartDataFluctuationDeaths} options={{
+    ...lineChartOptions,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Fluctuation in Cases',
+        font: {
+          size: 18,
+          weight: 'bold',
+        },
+        color: '#333',
+      },
+      legend: {
+        display: true,
+        position: 'bottom',
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        callbacks: {
+          label: (context) => `${context.dataset.label}: ${context.parsed.y}`,
+        },
+      },
+    },
+    elements: {
+      line: {
+        borderWidth: 2,
+        hoverBorderWidth: 3,
+        fill: true,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      },
+      point: {
+        pointStyle: 'rectRounded',
+        hoverRadius: 8,
+      },
+    },
+    animation: {
+      duration: 1000,
+      easing: 'easeInOutQuart',
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+  }} />}
+          {fluctuationSubTab === 'recovered' && <Line data={lineChartDataFluctuationRecovered} options={{
+    ...lineChartOptions,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Fluctuation in Cases',
+        font: {
+          size: 18,
+          weight: 'bold',
+        },
+        color: '#333',
+      },
+      legend: {
+        display: true,
+        position: 'bottom',
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        callbacks: {
+          label: (context) => `${context.dataset.label}: ${context.parsed.y}`,
+        },
+      },
+    },
+    elements: {
+      line: {
+        borderWidth: 2,
+        hoverBorderWidth: 3,
+        fill: true,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      },
+      point: {
+        pointStyle: 'rectRounded',
+        hoverRadius: 8,
+      },
+    },
+    animation: {
+      duration: 1000,
+      easing: 'easeInOutQuart',
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+  }} />}
         </>
       )}
       {mainTab === 'dailyAddition' && (
@@ -321,15 +494,185 @@ const [dailyAdditionSubTab, setDailyAdditionSubTab] = useState<'cases' | 'deaths
               Recovered
             </li>
           </ul>
-          {dailyAdditionSubTab === 'cases' && <Line data={lineChartDataDailyAdditionCases} options={lineChartOptions} />}
-          {dailyAdditionSubTab === 'deaths' && <Line data={lineChartDataDailyAdditionDeaths} options={lineChartOptions} />}
-          {dailyAdditionSubTab === 'recovered' && <Line data={lineChartDataDailyAdditionRecovered} options={lineChartOptions} />}
+          {dailyAdditionSubTab === 'cases' && <Line data={lineChartDataDailyAdditionCases} options={{
+    ...lineChartOptions,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Fluctuation in Cases',
+        font: {
+          size: 18,
+          weight: 'bold',
+        },
+        color: '#333',
+      },
+      legend: {
+        display: true,
+        position: 'bottom',
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        callbacks: {
+          label: (context) => `${context.dataset.label}: ${context.parsed.y}`,
+        },
+      },
+    },
+    elements: {
+      line: {
+        borderWidth: 2,
+        hoverBorderWidth: 3,
+        fill: true,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      },
+      point: {
+        pointStyle: 'rectRounded',
+        hoverRadius: 8,
+      },
+    },
+    animation: {
+      duration: 1000,
+      easing: 'easeInOutQuart',
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+  }} />}
+          {dailyAdditionSubTab === 'deaths' && <Line data={lineChartDataDailyAdditionDeaths} options={{
+    ...lineChartOptions,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Fluctuation in Cases',
+        font: {
+          size: 18,
+          weight: 'bold',
+        },
+        color: '#333',
+      },
+      legend: {
+        display: true,
+        position: 'bottom',
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        callbacks: {
+          label: (context) => `${context.dataset.label}: ${context.parsed.y}`,
+        },
+      },
+    },
+    elements: {
+      line: {
+        borderWidth: 2,
+        hoverBorderWidth: 3,
+        fill: true,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      },
+      point: {
+        pointStyle: 'rectRounded',
+        hoverRadius: 8,
+      },
+    },
+    animation: {
+      duration: 1000,
+      easing: 'easeInOutQuart',
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+  }} />}
+          {dailyAdditionSubTab === 'recovered' && <Line data={lineChartDataDailyAdditionRecovered} options={{
+    ...lineChartOptions,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Fluctuation in Cases',
+        font: {
+          size: 18,
+          weight: 'bold',
+        },
+        color: '#333',
+      },
+      legend: {
+        display: true,
+        position: 'bottom',
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        callbacks: {
+          label: (context) => `${context.dataset.label}: ${context.parsed.y}`,
+        },
+      },
+    },
+    elements: {
+      line: {
+        borderWidth: 2,
+        hoverBorderWidth: 3,
+        fill: true,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      },
+      point: {
+        pointStyle: 'rectRounded',
+        hoverRadius: 8,
+      },
+    },
+    animation: {
+      duration: 1000,
+      easing: 'easeInOutQuart',
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+  }} />}
         </>
       )}
     </div>
   </div>
         <div>
-          <h3 className="text-2xl font-semibold mb-6">Country Map</h3>
+        <h3 className="text-5xl font-bebas-neue mb-6 bg-gradient-to-r from-purple-800 to-purple-400 text-transparent bg-clip-text">
+  Country Map
+</h3>
           <div className="bg-white rounded-lg shadow-lg p-6">
             <MapContainer center={[20, 77]} zoom={4} style={{ height: '500px', width: '100%' }}>
               <TileLayer
