@@ -14,8 +14,7 @@ const App: React.FC = () => {
           <Sidebar />
           <div className="flex-1 p-8 ml-64">
             <Routes>
-              <Route path="/ContactManagementApp" element={<Navigate to="/Contact" />} />
-              <Route path="/Contact" element={<Contacts />} />
+              <Route path="/ContactManagementApp" element={<Contacts />} />
               <Route path="/charts-and-maps" element={<Charts />} />
             </Routes>
           </div>

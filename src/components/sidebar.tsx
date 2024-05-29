@@ -14,7 +14,7 @@ const Sidebar: React.FC = () => {
       <nav className="px-4 pt-6 pb-8">
         <ul className="space-y-4">
           <li>
-            <Link to="/Contact" className="flex items-center text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">
+            <Link to="/ContactManagementApp" className="flex items-center text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7h18M3 12h18M3 17h18"></path>
               </svg>
