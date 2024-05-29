@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ContactManagementApp/static/css/main.512e0f80.css",
-    "main.js": "/ContactManagementApp/static/js/main.c125f6a3.js",
+    "main.js": "/ContactManagementApp/static/js/main.2729f843.js",
     "static/media/bebas-neue-latin-400-normal.woff2": "/ContactManagementApp/static/media/bebas-neue-latin-400-normal.4352f3c0f3586c850c24.woff2",
     "static/media/bebas-neue-latin-400-normal.woff": "/ContactManagementApp/static/media/bebas-neue-latin-400-normal.35d44c0962992ff863c1.woff",
     "static/media/bebas-neue-latin-ext-400-normal.woff2": "/ContactManagementApp/static/media/bebas-neue-latin-ext-400-normal.99be330d826b8dba922c.woff2",
     "static/media/bebas-neue-latin-ext-400-normal.woff": "/ContactManagementApp/static/media/bebas-neue-latin-ext-400-normal.40ecee6e5fd01923295f.woff",
     "index.html": "/ContactManagementApp/index.html",
     "main.512e0f80.css.map": "/ContactManagementApp/static/css/main.512e0f80.css.map",
-    "main.c125f6a3.js.map": "/ContactManagementApp/static/js/main.c125f6a3.js.map"
+    "main.2729f843.js.map": "/ContactManagementApp/static/js/main.2729f843.js.map"
   },
   "entrypoints": [
     "static/css/main.512e0f80.css",
-    "static/js/main.c125f6a3.js"
+    "static/js/main.2729f843.js"
   ]
 }
